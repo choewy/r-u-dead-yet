@@ -1,23 +1,12 @@
-from flask import jsonify
+import json
+
+from flask import Response
 
 
-class ResponseDto:
-  def __init__(self, ok: bool, status: int, data: any):
-    self.ok = ok
-    self.status = status
-    self.data = data
-
-  def __json__(self):
-    return {
-      "ok": self.ok,
-      "status": self.status,
-      "data": self.data
-    }
-
-  @staticmethod
-  def ok(status: int, data: any):
-    return jsonify(ResponseDto(True, status, data).__json__())
-
-  @staticmethod
-  def fail(status: int, data: any):
-    return jsonify(ResponseDto(False, status, data).__json__())
+class ResponseDto(Response):
+  def __init__(self, ok: bool, status: int, data: any = None):
+    Response.__init__(self, json.dumps({
+      "ok": ok,
+      "status": status,
+      "data": data,
+    }), status=status, mimetype="application/json")
