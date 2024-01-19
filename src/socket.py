@@ -9,14 +9,23 @@ ASCII_CHARACTERS = string.ascii_letters + string.digits
 class Socket(socket.socket):
   def __init__(self, host, port, tls=False, timeout=5) -> None:
     socket.socket.__init__(self)
-
+    self.host = host
+    self.port = port
     self.settimeout(timeout)
-    self.connect(( host, port ))
-
+    
     if tls:
       context = ssl.SSLContext(ssl._SSLMethod.PROTOCOL_TLS)
       context.load_default_certs()
       self = context.wrap_socket(self)
+
+  def create(self):
+    try:
+      self.connect((self.host, self.port))
+      return self
+    
+    except Exception as e:
+      print(e)
+      return None
 
   def send_request(self, http_request: str) -> bool:
     ok = 0

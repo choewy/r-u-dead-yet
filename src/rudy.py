@@ -32,7 +32,10 @@ class Rudy:
         self.args.port, 
         self.args.tls, 
         self.args.timeout
-      )
+      ).create()
+
+      if socket is None:
+        continue
 
       if socket.send_request(request):
         self.sockets.append(socket)
