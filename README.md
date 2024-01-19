@@ -54,6 +54,19 @@ cd servers/express
 sh docker.sh [port]
 ```
 
+### Run Nest with Docker
+
+- version: Node 20
+- keepAliveTimeout: 10s
+- maxConnections: 10
+- port: args(default 3000)
+
+```zsh
+cd servers/nest
+
+sh docker.sh [port]
+```
+
 ### Run Flask with Docker
 
 - version: Python 11
