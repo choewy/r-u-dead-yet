@@ -2,10 +2,10 @@ import time
 
 from typing_extensions import List
 
-from src.logger import Logger
-from src.args import Args
-from src.socket import Socket
-from src.http import Http
+from rudy.logger import Logger
+from rudy.args import Args
+from rudy.socket import Socket
+from rudy.http import Http
 
 
 class Rudy:
