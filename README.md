@@ -50,5 +50,17 @@ python3 main.py http://localhost:3000 -t 10
 ```zsh
 cd servers/express
 
-sh docker.sh [-port]
+sh docker.sh [port]
+```
+
+### Run Flask with Docker
+
+- port: args(default 3000)
+- processes: 1
+- threads: not use
+
+```zsh
+cd servers/flask
+
+sh docker.sh [port]
 ```
