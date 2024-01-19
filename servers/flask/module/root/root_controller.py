@@ -9,9 +9,9 @@ class RootController:
   @staticmethod
   @router("/", methods=["GET"])
   def get():
-    return ResponseDto.ok(200, "Root")
+    return ResponseDto(True, 200, "Root")
   
   @staticmethod
-  @router('/', methods=["POST"])
+  @router("/", methods=["POST"])
   def post():
-    return ResponseDto.ok(201, request.form)
+    return ResponseDto(True, 201)
