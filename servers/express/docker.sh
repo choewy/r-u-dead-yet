@@ -13,7 +13,6 @@ if [ "$(docker container inspect --format '{{.Name}}' $NAME 2>&1)" == "/$NAME" ]
   docker rm -f $NAME
 fi
 
-docker run \
-  --name $NAME -d \
-  -p $PORT:3000 \
-  express
+docker run --name $NAME -d -p $PORT:3000 $NAME
+
+exit 0
