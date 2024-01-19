@@ -10,7 +10,7 @@ source .venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
-## Run RUDY Attack
+## RUDY
 
 ```zsh
 usage: main.py [-h] [-s SOCKETS] [-t TIME] [-b BYTES] [-l LENGTH] url
@@ -29,17 +29,26 @@ options:
                         HTTP POST Content-Length(Default : 64)
 ```
 
-## Run Express Server
+### for Example
 
+- host: http://localhost
 - port: 3000
-- keepAliveTimeout: 15s
-- maxConnections: 10
+- keepAliveTimeout: 10s
 
 ```zsh
-python3 main.py http://localhost:3000
+python3 main.py http://localhost:3000 -t 10
 ```
+
+## Test Servers
+
+### Run Express with Docker
+
+- keepAliveTimeout: 10s
+- maxConnections: 10
+- port: args(default 3000)
 
 ```zsh
 cd servers/express
-npm run start
+
+sh docker.sh [-port]
 ```
